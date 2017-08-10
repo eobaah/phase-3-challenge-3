@@ -1,0 +1,197 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: "Lucida Grande", "Helvetica", sans-serif;
+}
+
+/* LAYOUT UTILS */
+.flex {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-row-between {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.flex-full {
+  flex: 1;
+}
+
+/* HEADER */
+.site-header {
+  flex: 0;
+  padding: 4px 0px;
+  border-bottom: 2px solid #ccc;
+  background-color: #eee;
+}
+
+.site-header > *:first-child {
+  margin-left: 12px;
+}
+
+.site-header > *:last-child {
+  margin-right: 12px;
+}
+
+.site-header h1 {
+  font-size: 24px;
+}
+
+.site-header button {
+  font-size: 20px;
+}
+
+/* SIDEBAR */
+.sidebar {
+  flex: 0 0 20%;
+  border-right: solid 1px #ccc;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar h4 {
+  background-color: #ddd;
+  border-bottom: 1px solid #ccc;
+  margin: 0;
+  padding: 4px;
+}
+
+.sidebar li {
+  padding: 4px;
+}
+
+/* CONTENT */
+.content {
+  flex: 1;
+  padding: 4px 0;
+}
+
+.content * {
+  padding: 0 12px;
+}
+
+/* ITEM LIST */
+.item-section {
+  list-style-type: none;
+  margin: 32px 0 0;
+  padding: 0;
+}
+
+.item-section h3 {
+  font-weight: normal;
+  font-style: italic;
+}
+
+.item {
+  margin-bottom: 8px;
+}
+
+.item:hover {
+  background-color: #eee;
+}
+
+.item > * {
+  font-size: 18px;
+  padding: 8px;
+}
+
+.item-name {
+  flex: 1;
+}
+
+.item-price {
+  flex: 0;
+}
+
+/* MODAL */
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding: 100px 0 0 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-container {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  left: 22%;
+  top: 25%;
+  background-color: rgba(255, 255, 255, 1);
+  margin: auto;
+  padding: 20px;
+  border: 1px solid rgba(110, 107, 107, 1);
+  z-index: 3;
+  width: 60%;
+}
+
+
+.close:hover,
+.close:focus {
+  color: rgba(125, 119, 119, 1);
+  text-decoration: none;
+  cursor: pointer
+}
+
+
+.modal-header, .modal-footer, .modal-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.modal-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.modal-total-price {
+  margin: 0 0 0 0%;
+}
+
+.modal-items > DIV {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 1% 0;
+}
+
+.modal-footer {
+  margin: 2% 0;
+}
+.modal-footer > button {
+  box-shadow: 3px 5px 3px rgb(136, 134, 134);
+  width: 10%;
+  align-items: flex-start;
+  text-align: center;
+  cursor: pointer;
+  background-color: rgb(157, 151, 136);
+  box-sizing: border-box;
+  padding: 2px 6px 3px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: rgb(157, 151, 136);
+}
+
+.show-modal {
+  display: flex;
+}

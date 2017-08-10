@@ -1,0 +1,26 @@
+{
+  "name": "part-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "database.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel-core/register ./database_test.js",
+    "db": "dropdb grocery_store; createdb grocery_store; psql grocery_store < ./schema.sql; psql grocery_store < ./load-data.sql",
+    "drop": "dropdb grocery_store",
+    "create": "createdb grocery_store",
+    "schema": "psql grocery_store < ./schema.sql",
+    "seed": "psql grocery_store < ./load-data.sql"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "pg-promise": "^6.3.7",
+    "postgresql": "0.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
+    "chai": "^4.1.1",
+    "chai-as-promised": "^7.1.1"
+  }
+}
