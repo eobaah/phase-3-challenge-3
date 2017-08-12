@@ -1,18 +1,14 @@
-let cartBtn = document.getElementById("cart-button")
-let cartCounter = document.getElementById("cart-item-count")
-let modal = document.querySelector(".modal-container")
-let modalOverlay = document.querySelector(".modal-overlay")
-let closeBtn = document.querySelector(".close-btn")
-let showTotalPrice = document.querySelector(".modal-total-price")
-let addToCartBtn = document.querySelectorAll("li button")
-let modalItems = document.querySelector(".modal-items")
-let clearCartBtn = document.querySelector(".modal-footer button")
+const cartBtn = document.getElementById("cart-button")
+const cartCounter = document.getElementById("cart-item-count")
+const modal = document.querySelector(".modal-container")
+const modalOverlay = document.querySelector(".modal-overlay")
+const closeBtn = document.querySelector(".close-btn")
+const showTotalPrice = document.querySelector(".modal-total-price")
+const addToCartBtn = document.querySelectorAll("li button")
+const modalItems = document.querySelector(".modal-items")
+const clearCartBtn = document.querySelector(".modal-footer button")
 let itemsArray = []
 let totalPrice
-
-cartBtn.addEventListener("click", openModal)
-closeBtn.addEventListener("click", closeModal)
-clearCartBtn.addEventListener("click", clearCart)
 
 function openModal() {
   modalOverlay.classList.add("show-modal")
@@ -23,10 +19,6 @@ function closeModal() {
   modalOverlay.classList.remove("show-modal")
   modal.classList.remove("show-modal")
 }
-
-addToCartBtn.forEach( element => {
-  element.addEventListener("click", getItemData)
-})
 
 function getItemData(element) {
   let childNodes = element.target.parentElement.childNodes
@@ -77,3 +69,10 @@ function clearCart() {
   showTotalPrice.innerHTML = "$0.00"
   cartCounter.innerHTML = "0"
 }
+
+addToCartBtn.forEach( element => {
+  element.addEventListener("click", getItemData)
+})
+cartBtn.addEventListener("click", openModal)
+closeBtn.addEventListener("click", closeModal)
+clearCartBtn.addEventListener("click", clearCart)

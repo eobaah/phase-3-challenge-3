@@ -6,9 +6,15 @@ const bodyParser = require('body-parser')
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 const jsonParser = bodyParser.json()
 
+app.get('/api/days', function (request, response) {
+  let day1 = request.query.number1
+  let day2 = request.query.number2
+  let combined = Number(day1) + Number(day2)
+  console.log(request.query)
+  console.log(request.params)
+  console.log(request.body)
 
-app.get('/api/days/:day', function (request, response) {
-  let day = request.params.day
+  // console.log(day2)
   let daysOfWeek = {
     monday: 1,
     tuesday:2,
@@ -32,34 +38,26 @@ app.get('/api/days/:day', function (request, response) {
 })
 
 app.post( '/api/array/concat/urlencoded/', urlencodedParser, function ( request, response ) {
-  console.log( "request.body:", request.body )
   let body = request.body
   if( !body || !body.array1 || !body.array2 ) {
     response.status(400).send(`{"error": "A body does not exist or you have an empty array."}`)
   }
-
   let array1 = body.array1
   let array2 = body.array2
-  if( !Array.isArray( (JSON.parse(array1)) ) || !Array.isArray( JSON.parse(array2) ) ) {
+  if( !Array.isArray( (JSON.parse(array1)) ) || !Array.isArray(JSON.parse(array2) ) ) {
       response.status(400).send(`{"error": "Input data should be of type Array."}`)
   } else {
-    let answer = JSON.parse(array1).concat(JSON.parse(array2))
+    let answer = (JSON.parse(array1)).concat(JSON.parse(array2))
     response.status(200).json({"result": answer})
-}
-
-
-
+  }
 })
 
-app.post('/api/array/concat/', jsonParser, function (request, response) {
+app.post('/api/array/concat/jsonparser', jsonParser, function (request, response) {
   let body = request.body
   let array1 = (body.array1)
   let array2 = (body.array2)
-  console.log(body)
   !Array.isArray((array1)) || !Array.isArray((array2)) ? response.status(400).send(`{"error": Input data should be of type Array}`) :
   response.set('Content-Type', 'application/json').status(200).json( {"result": ( array1 ).concat( (array2) ) } )
-
-
 })
 
 
